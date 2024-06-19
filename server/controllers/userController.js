@@ -20,10 +20,6 @@ const updateUserProfile = asyncHandler(async (req, res) => {
   res.status(200).json({ mesage: "Update User" });
 });
 
-const forgetPassword = asyncHandler(async (req, res) => {
-  res.status(200).json({ mesage: "Forget Password" });
-});
-
 export {
   loginUser,
   registerUser,
