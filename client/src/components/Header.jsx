@@ -22,6 +22,11 @@ const Header = () => {
                   <FaSignInAlt /> Sign Up
                 </Nav.Link>
               </LinkContainer>
+              <LinkContainer to="/multi-step-form">
+                <Nav.Link>
+                  <FaSignInAlt /> MultiStepForm
+                </Nav.Link>
+              </LinkContainer>
             </Nav>
           </Navbar.Collapse>
         </Container>
