@@ -1,13 +1,18 @@
 import { useEffect, useState } from "react";
-import FormContainer from "../components/FormContainer";
+// Redux slices and hooks
 import { setCredentials } from "../slices/authSlice";
-import { useLoginMutation } from "../slices/usersApiSlice";
-
-import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-
+import { useLoginMutation } from "../slices/usersApiSlice";
+// Components
+import Loader from "../components/Loader";
+import FormContainer from "../components/FormContainer";
+// Utilities
 import { toast } from "react-toastify";
+// Icons
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+// Routing
+import { Link, useNavigate } from "react-router-dom";
+// UI Components
 import { Button, Col, Form, Row, InputGroup } from "react-bootstrap";
 
 const LoginScreen = () => {
@@ -70,16 +75,12 @@ const LoginScreen = () => {
               variant="primary"
               onClick={() => setShowPassword(!showPassword)}
             >
-              {showPassword ? <FaEye size={20} /> : <FaEyeSlash size={20} />}
+              {showPassword ? <FaEye size={18} /> : <FaEyeSlash size={18} />}
             </Button>
           </InputGroup>
         </Form.Group>
-        <Button
-          className="mt-3"
-          type="submit"
-          variant="primary"
-          disabled={isLoading}
-        >
+        {isLoading && <Loader />}
+        <Button className="mt-3" type="submit" variant="primary">
           Sign In
         </Button>
         <Row className="py-3">
